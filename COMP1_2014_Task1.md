@@ -35,14 +35,33 @@ When you complete a game you will be asked to add your score to the list of most
 **Answer** the following questions:
 
 1. Which function is responsible for getting the name from the user?
+**The function responsible for getting the name from the user is GetPlayerName().**
 2. How will you ensure that the user is asked for the name repeatedly?
+**In order to ensure that the user is asked for the name repeatedly, I can use a while function where in order to proceed to the next stage they have put enter their name.**
 3. What additional variable will you need and what will its datatype be?
 
 ###Pseudo-code
 Write the function identified above in pseudo-code with the improvements necessary to prevent the user leaving their name blank.
+**FUNCTION GetPlayerName() THEN**
+  **PRINT**
+  **PlayerName = INPUT('Please enter your name: ')**
+  **WHILE PlayerName == '' THEN**
+    **PRINT('You must enter something for your name!')**
+    **PlayerName = INPUT('Please enter your name: ')**
+    **PRINT()**
+  **RETURN PlayerName**
+
 
 ###Program code
 Use the pseudo-code created above to help you improve the actual program code.
+**def GetPlayerName():**
+  **print()**
+  **PlayerName = input('Please enter your name: ')**
+  **while PlayerName == '':**
+    **print('You must enter something for your name!')**
+    **PlayerName = input('Please enter your name: ')**
+    **print()**
+  **return PlayerName**
 
 ##Task 3(b) - Deciding whether you want to add your name to the recent score table
 Some users are not keen on adding their name to high score tables - they want to play the game but remain anonymous. Before being asked for their name they should be allowed to decide whether they want to add their name to the recent score table:
@@ -53,6 +72,7 @@ Some users are not keen on adding their name to high score tables - they want to
 **Answer** the following questions:
 
 1. Which function is responsible for adding scores to the table?
+**The function responsible for adding scores to the table is UpdateRecentScores(RecentScores, Score).**
 
 ###Program code
 **Improve** the function identified above so that the user has the choice of whether to add their name to the high score table or not.
