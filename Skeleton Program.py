@@ -159,6 +159,9 @@ def DisplayCorrectGuessMessage(Score):
   print('Your score is now ', Score, '.', sep='')
   print()
 
+def DateAndTime():
+  
+  
 def ResetRecentScores(RecentScores):
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
     RecentScores[Count].Name = ''
@@ -169,7 +172,9 @@ def DisplayRecentScores(RecentScores):
   print('Recent Scores: ')
   print()
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
-    print(RecentScores[Count].Name, 'got a score of', RecentScores[Count].Score)
+    print("{0:>6}", "{6:>12}".format("Name", "Score"))
+    print()
+    print("{0:>6}", "{6:>12}".format(RecentScores[Count].Name, RecentScores[Count].Score))
   print()
   print('Press the Enter key to return to the main menu')
   input()
