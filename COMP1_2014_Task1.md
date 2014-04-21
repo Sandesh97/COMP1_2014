@@ -95,8 +95,10 @@ One improvement that we can make is to record the date a high score was achieved
 **Answer** the following questions:
 
 1. What additional module will you need to import into the program?
+**You would need to import the datetime function.**
 2. Identify the four functions that will require changes.
 3. How do you convert a string in the format DD/MM/YY (e.g. 14/08/93) to a **date** type in Python?
+**You can convert a string into a date type by using the strptime() or strftime(stringFormat) function.**
 
 ###Program code
 **Make** the necessary changes to the program so that the date can be stored along with the rest of the of the recent score details. **Ensure** that when the score is displayed that it is in the **format DD/MM/YY**.
