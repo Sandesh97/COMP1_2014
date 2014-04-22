@@ -160,8 +160,10 @@ def DisplayCorrectGuessMessage(Score):
   print()
 
 def DateAndTime():
-  
-  
+  details = datetime.datetime.today() 
+  dateandtime = datetime.datetime.strftime(details, "%A %d/%m/%y %H:%M:%S")
+  print("You saved your game on ", dateandtime)
+
 def ResetRecentScores(RecentScores):
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
     RecentScores[Count].Name = ''
@@ -244,6 +246,7 @@ if __name__ == '__main__':
       LoadDeck(Deck)
       PlayGame(Deck, RecentScores)
     elif Choice == '3':
+      DateAndTime()
       DisplayRecentScores(RecentScores)
     elif Choice == '4':
       ResetRecentScores(RecentScores)
