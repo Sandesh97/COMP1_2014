@@ -73,9 +73,23 @@ def DisplayMenu():
   print('2. Play game (without shuffle)')
   print('3. Display recent scores')
   print('4. Reset recent scores')
+  print('5. Options')
   print()
   print('Select an option from the menu (or enter q to quit): ', end='')
+  print()
 
+def DisplayOptions():
+  print("OPTION MENU")
+  print()
+  print("1. Set Ace to be HIGH or LOW")
+  print()
+
+def GetOptionChoice():
+  option = int(input("Select an option from the menu (or enter q to quit): "))
+  print()
+  if option == "1":
+    print(input("Do you want the Ace to be (h)igh or (l)ow: "))
+    
 def GetMenuChoice():
   Choice = input()
   if Choice == 'q' or Choice == 'Q' or Choice == 'Quit':
@@ -135,6 +149,7 @@ def GetPlayerName():
   while PlayerName == '':
     print('You must enter something for your name!')
     PlayerName = input('Please enter your name: ')
+    print()
   return PlayerName
 
 def GetChoiceFromUser():
@@ -173,10 +188,10 @@ def DisplayRecentScores(RecentScores):
   print()
   print('Recent Scores: ')
   print()
+  print("{0:<6} {1:>12}".format("Name", "Score"))
+  print()
   for Count in range(1, NO_OF_RECENT_SCORES + 1):
-    print("{0:>6}", "{6:>12}".format("Name", "Score"))
-    print()
-    print("{0:>6}", "{6:>12}".format(RecentScores[Count].Name, RecentScores[Count].Score))
+    print("{0:<6} {1:>12}".format(RecentScores[Count].Name, RecentScores[Count].Score))
   print()
   print('Press the Enter key to return to the main menu')
   input()
@@ -200,6 +215,7 @@ def UpdateRecentScores(RecentScores, Score):
       Count = NO_OF_RECENT_SCORES
     RecentScores[Count].Name = PlayerName
     RecentScores[Count].Score = Score
+
 
 def PlayGame(Deck, RecentScores):
   LastCard = TCard()
@@ -250,3 +266,6 @@ if __name__ == '__main__':
       DisplayRecentScores(RecentScores)
     elif Choice == '4':
       ResetRecentScores(RecentScores)
+    elif Choice == '5':
+      DisplayOptions()
+      GetOptionChoice()
