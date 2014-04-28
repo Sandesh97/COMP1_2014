@@ -6,6 +6,7 @@
 
 import random
 import datetime
+import pickle
 
 NO_OF_RECENT_SCORES = 3
 
@@ -93,7 +94,7 @@ def GetOptionChoice():
   
 def SaveScores(RecentScores):
   with open("scores.txt", mode="w",  encoding ="utf-8") as saved_scores:
-    saved_scores.write(RecentScores + "\n")
+    saved_scores.write("RecentScores" + "\n")
 
 def GetMenuChoice():
   Choice = input()
@@ -190,7 +191,9 @@ def ResetRecentScores(RecentScores):
     RecentScores[Count].Score = 0
 
 def BubbleSortScores(RecentScores):
-  
+  sorting = True
+  while sorting != True:
+    pass
 
 def DisplayRecentScores(RecentScores):
   print()
