@@ -74,6 +74,7 @@ def DisplayMenu():
   print('3. Display recent scores')
   print('4. Reset recent scores')
   print('5. Options')
+  print('6. Save high scores')
   print()
   print('Select an option from the menu (or enter q to quit): ', end='')
   print()
@@ -87,9 +88,13 @@ def DisplayOptions():
 def GetOptionChoice():
   option = int(input("Select an option from the menu (or enter q to quit): "))
   print()
-  if option == "1":
+  while option != '1':
     print(input("Do you want the Ace to be (h)igh or (l)ow: "))
-    
+  
+def SaveScores(RecentScores):
+  with open("scores.txt", mode="w",  encoding ="utf-8") as saved_scores:
+    saved_scores.write(RecentScores + "\n")
+
 def GetMenuChoice():
   Choice = input()
   if Choice == 'q' or Choice == 'Q' or Choice == 'Quit':
@@ -184,6 +189,9 @@ def ResetRecentScores(RecentScores):
     RecentScores[Count].Name = ''
     RecentScores[Count].Score = 0
 
+def BubbleSortScores(RecentScores):
+  
+
 def DisplayRecentScores(RecentScores):
   print()
   print('Recent Scores: ')
@@ -215,7 +223,6 @@ def UpdateRecentScores(RecentScores, Score):
       Count = NO_OF_RECENT_SCORES
     RecentScores[Count].Name = PlayerName
     RecentScores[Count].Score = Score
-
 
 def PlayGame(Deck, RecentScores):
   LastCard = TCard()
@@ -263,9 +270,12 @@ if __name__ == '__main__':
       PlayGame(Deck, RecentScores)
     elif Choice == '3':
       DateAndTime()
+      BubbleSortScores(RecentScores)
       DisplayRecentScores(RecentScores)
     elif Choice == '4':
       ResetRecentScores(RecentScores)
     elif Choice == '5':
       DisplayOptions()
       GetOptionChoice()
+    elif Choice == '6':
+      SaveScores(RecentScores)
